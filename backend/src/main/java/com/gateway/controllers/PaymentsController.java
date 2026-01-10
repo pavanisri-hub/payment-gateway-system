@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/payments")
@@ -29,6 +31,25 @@ public class PaymentsController {
         this.paymentService = paymentService;
         this.authenticationService = authenticationService;
         this.orderService = orderService;
+    }
+
+    /* =========================
+       GET ALL PAYMENTS (NEW!)
+       ========================= */
+    @GetMapping
+    public ResponseEntity<?> getAllPayments(
+            @RequestHeader("X-Api-Key") String apiKey,
+            @RequestHeader("X-Api-Secret") String apiSecret
+    ) {
+        Merchant merchant = authenticationService.authenticate(apiKey, apiSecret);
+
+        List<Payment> payments = paymentService.getPaymentsByMerchant(merchant);
+
+        List<PaymentResponseDTO> response = payments.stream()
+                .map(this::buildPaymentDTO)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(response);
     }
 
     /* =========================

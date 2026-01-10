@@ -7,6 +7,7 @@ import com.gateway.repositories.PaymentRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -87,6 +88,13 @@ public class PaymentService {
     }
 
     /* =========================
+       GET ALL PAYMENTS BY MERCHANT (NEW!)
+       ========================= */
+    public List<Payment> getPaymentsByMerchant(Merchant merchant) {
+        return paymentRepository.findByMerchantId(merchant.getId());
+    }
+
+    /* =========================
        INTERNAL HELPERS
        ========================= */
     private void simulateProcessing(Payment payment) {
@@ -102,8 +110,10 @@ public class PaymentService {
     private String generatePaymentId() {
         return "pay_" + validationService.randomAlphaNumeric(14);
     }
+
     public Payment getById(String paymentId) {
-    return paymentRepository.findById(paymentId)
-            .orElseThrow(() -> new RuntimeException("NOT_FOUND_ERROR"));
+        return paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new RuntimeException("NOT_FOUND_ERROR"));
+    }
 }
-}
+    
