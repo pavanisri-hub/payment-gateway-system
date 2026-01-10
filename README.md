@@ -178,8 +178,9 @@ text
 3. ✅ Record 2-min video demo
 4. ✅ Submit repository URL
 
-***
+```markdown
+📚 **[View Complete API Documentation](./API.md)** 
 
-**CONGRATS! YOU'RE DONE! 🎉🎉🎉**
+🏗️ **[View System Architecture](./ARCHITECTURE.md)**
 
-**Push to GitHub NOW and submit!** 🚀
+💾 **[View Database Schema](./DATABASE.md)**
