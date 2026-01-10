@@ -23,9 +23,28 @@ services:
       postgres:
         condition: service_healthy
     ports:
-      - "8000:8080"
+      - "8000:8000"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://pg_gateway:5432/payment_gateway
       SPRING_DATASOURCE_USERNAME: gateway_user
       SPRING_DATASOURCE_PASSWORD: gateway_pass
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SERVER_PORT: 8000
+
+  dashboard:
+    build:
+      context: ./frontend
+    container_name: gateway_dashboard
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+  checkout:
+    build:
+      context: ./checkout-page
+    container_name: gateway_checkout
+    ports:
+      - "3001:80"
+    depends_on:
+      - api
