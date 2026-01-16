@@ -65,34 +65,61 @@ export default function Dashboard() {
     <div data-test-id="dashboard">
       <div style={{ marginBottom: "30px" }}>
   <h1>Merchant Dashboard</h1>
-  <div style={{ marginTop: "15px", display: "flex", gap: "15px" }}>
-    <a 
-      href="/dashboard" 
-      style={{ 
-        padding: "10px 20px", 
-        background: "#667eea", 
-        color: "white", 
-        textDecoration: "none", 
+    <div style={{ marginTop: "15px", display: "flex", gap: "15px" }}>
+    <a
+      href="/dashboard"
+      style={{
+        padding: "10px 20px",
+        background: "#667eea",
+        color: "white",
+        textDecoration: "none",
         borderRadius: "8px",
-        fontWeight: "bold"
+        fontWeight: "bold",
       }}
     >
       Dashboard
     </a>
-    <a 
-      href="/dashboard/transactions" 
-      style={{ 
-        padding: "10px 20px", 
-        background: "#764ba2", 
-        color: "white", 
-        textDecoration: "none", 
+    <a
+      href="/dashboard/transactions"
+      style={{
+        padding: "10px 20px",
+        background: "#764ba2",
+        color: "white",
+        textDecoration: "none",
         borderRadius: "8px",
-        fontWeight: "bold"
+        fontWeight: "bold",
       }}
     >
       Transactions
     </a>
+    <a
+      href="/dashboard/webhooks"
+      style={{
+        padding: "10px 20px",
+        background: "#16a34a",
+        color: "white",
+        textDecoration: "none",
+        borderRadius: "8px",
+        fontWeight: "bold",
+      }}
+    >
+      Webhooks
+    </a>
+    <a
+      href="/dashboard/docs"
+      style={{
+        padding: "10px 20px",
+        background: "#0ea5e9",
+        color: "white",
+        textDecoration: "none",
+        borderRadius: "8px",
+        fontWeight: "bold",
+      }}
+    >
+      API Docs
+    </a>
   </div>
+
 </div>
 
 

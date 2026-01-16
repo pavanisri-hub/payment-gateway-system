@@ -44,6 +44,9 @@ private UUID id;
 
     @Column(name = "updated_at")
     private Instant updatedAt;
+    @Column(name = "webhook_secret", length = 64)
+    private String webhookSecret;
+
 
     // ===== GETTERS & SETTERS =====
 
@@ -118,4 +121,12 @@ private UUID id;
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
+        public String getWebhookSecret() {
+        return webhookSecret;
+    }
+
+    public void setWebhookSecret(String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+    }
+
 }

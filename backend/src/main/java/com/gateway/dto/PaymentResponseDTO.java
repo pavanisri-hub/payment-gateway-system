@@ -15,4 +15,6 @@ public class PaymentResponseDTO {
     public String card_last4;
     public Instant created_at;
     public Instant updated_at;
+    public Boolean captured;
+
 }

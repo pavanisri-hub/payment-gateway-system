@@ -58,6 +58,10 @@ public class Payment {
 
     @Column(nullable = false)
     private Instant updatedAt;
+    
+    @Column(nullable = false)
+    private Boolean captured = false;
+
 
     // =========================
     // GETTERS & SETTERS
@@ -104,4 +108,13 @@ public class Payment {
 
     public Instant getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(Instant updatedAt) { this.updatedAt = updatedAt; }
+
+        public Boolean getCaptured() {
+        return captured;
+    }
+
+    public void setCaptured(Boolean captured) {
+        this.captured = captured;
+    }
+
 }
